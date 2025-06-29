@@ -1,0 +1,374 @@
+/* -----------------------------------------
+🎨 Estilo general
+----------------------------------------- */
+body {
+  margin: 0;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  background-color: #fefae0;
+  color: #333;
+}
+
+header {
+  background-color: #a7c957;
+  padding: 15px;
+  text-align: center;
+  color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+footer {
+  text-align: center;
+  padding: 15px;
+  font-size: 0.9em;
+  color: #999;
+}
+
+/* -----------------------------------------
+🕹️ Contenedor del juego
+----------------------------------------- */
+#game-container {
+  width: 600px;
+  height: 400px;
+  margin: 30px auto;
+  background-image: url('imagenes/fondo.jpeg');
+  background-size: cover;
+  border: 4px solid #6c584c;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* -----------------------------------------
+🧑‍🦳 Personajes
+----------------------------------------- */
+.personaje {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  position: absolute;
+  box-shadow: 0 0 5px #000;
+  transition: all 0.2s ease-in-out;
+}
+
+#doña-tina {
+  background-color: #dda15e;
+  top: 20px;
+  left: 20px;
+}
+
+.enemiga,
+.enfermera {
+  width: 50px;
+  height: 50px;
+  background-color: #b8c0ff;
+  border-radius: 8px;
+  border: 2px solid #555;
+  position: absolute;
+  animation: patrullar 4s linear infinite alternate;
+}
+
+/* Movimiento de patrulla */
+@keyframes patrullar {
+  0%   { left: 100px; }
+  100% { left: 500px; }
+}
+
+/* -----------------------------------------
+🚧 Obstáculos y Objetos Interactivos
+----------------------------------------- */
+.calcetin, .calcetin1 {
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  border: 2px dashed #fff;
+  animation: vibrar 0.7s infinite;
+}
+
+.obstaculo, .energia, .powerup {
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  border: 2px dashed #fff;
+  animation: vibrar 0.7s infinite;
+}
+
+.powerup {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  animation: vibrar 0.9s infinite;
+}
+
+@keyframes vibrar {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(2px); }
+  100% { transform: translateX(0); }
+}
+
+.escondite {
+  width: 60px;
+  height: 60px;
+  background-color:black ;
+  position: absolute;
+  border-radius: 10px;
+  opacity: 0.7;
+}
+
+.palanca {
+  width: 30px;
+  height: 30px;
+  background-color: #e5989b;
+  border: 2px dashed #b5838d;
+  position: absolute;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.palanca.activada {
+  background-color: #b5ead7;
+}
+
+/* -----------------------------------------
+🚪 Puertas
+----------------------------------------- */
+.puerta-bloqueada {
+  width: 40px;
+  height: 80px;
+  background-color: #222;
+  border: 3px solid #ccc;
+  position: absolute;
+  border-radius: 6px;
+}
+
+.puerta-bloqueada.reparada {
+  background-color: #4cd137;
+  border-color: #0f0;
+}
+
+.puerta-final {
+  width: 50px;
+  height: 100px;
+  background-color: #ff6f61;
+  border: 3px solid #333;
+  position: absolute;
+}
+
+.puerta-final.abierta {
+  background-color: #00b894;
+}
+
+/* -----------------------------------------
+📊 HUD: Energía y Cronómetro
+----------------------------------------- */
+#energia-barra-container {
+  width: 600px;
+  margin: 10px auto 20px;
+  text-align: center;
+  font-weight: bold;
+}
+
+#energia {
+  width: 80%;
+  height: 20px;
+  appearance: none;
+}
+
+#energia::-webkit-progress-bar {
+  background-color: #605757;
+  border-radius: 10px;
+}
+
+#energia::-webkit-progress-value {
+  background: linear-gradient(to right, #a7c957, #bc6c25);
+  border-radius: 10px;
+}
+
+#cronometro-box {
+  width: 600px;
+  margin: 10px auto;
+  text-align: center;
+  font-weight: bold;
+  color: #fff;
+  background-color: #6c757d;
+  padding: 5px;
+  border-radius: 6px;
+  font-size: 18px;
+}
+
+/* -----------------------------------------
+💬 Diálogo
+----------------------------------------- */
+#dialogo-box {
+  width: 600px;
+  margin: 0 auto;
+  background-color: #faedcd;
+  padding: 10px;
+  text-align: center;
+  font-style: italic;
+  border: 2px dotted #6c584c;
+  border-radius: 8px;
+}
+
+/* -----------------------------------------
+📱 Adaptabilidad / Responsive
+----------------------------------------- */
+.personaje, .calcetin, .enfermera {
+  max-width: 12vw;
+  width: 45px;
+  height: auto;
+  position: absolute;
+}
+
+@media (max-width: 768px) {
+  .personaje, .calcetin, .enfermera {
+    max-width: 18vw;
+  }
+}
+
+@media (max-width: 480px) {
+  .personaje, .calcetin, .enfermera {
+    max-width: 24vw;
+  }
+}
+
+@media (max-width: 600px) {
+  #game-container {
+    height: 400px;
+  }
+}
+ @keyframes parpadeoSuave {
+  0%, 100% { filter: brightness(1); }
+  50% { filter: brightness(1.05); }
+}
+
+#game-container {
+  animation: parpadeoSuave 3s infinite;
+}
+.flecha:active {
+  background-color: #fef08a; /* Amarillo suave al tocar */
+  box-shadow: inset 0 0 5px #ca8a04;
+  transform: scale(0.95);
+}
+.especial {
+  background-color: #f0abfc;
+  color: #3b0764;
+  font-weight: bold;
+  border: none;
+  padding: 12px 20px;
+  margin-top: 10px;
+  border-radius: 12px;
+  font-size: 1rem;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+}
+
+.especial:active {
+  background-color: #e879f9;
+  transform: scale(0.97);
+}
+#intro-comic {
+  position: fixed;
+  inset: 0;
+  background: #fefae0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  font-family: 'Comic Neue', cursive;
+  text-align: center;
+}
+
+.panel {
+  opacity: 0;
+  font-size: 1.5rem;
+  margin: 15px;
+  animation: entrada 1s ease forwards;
+}
+
+#panel-1 { animation-delay: 0.3s; }
+#panel-2 { animation-delay: 1.5s; }
+#panel-3 { animation-delay: 2.7s; }
+
+@keyframes entrada {
+  from { transform: scale(0.8); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
+
+#comenzar-juego {
+  margin-top: 30px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  background: #bbf7d0;
+  cursor: pointer;
+}
+@keyframes brillo {
+  0% { box-shadow: 0 0 5px #facc15; }
+  50% { box-shadow: 0 0 20px #facc15; }
+  100% { box-shadow: 0 0 5px #facc15; }
+}
+
+.powerup {
+  animation: brillo 2s infinite;
+  border-radius: 50%;
+}
+@keyframes brillo {
+  0% { box-shadow: 0 0 5px #facc15; }
+  50% { box-shadow: 0 0 20px #facc15; }
+  100% { box-shadow: 0 0 5px #facc15; }
+}
+
+.powerup {
+  animation: brillo 2s infinite;
+  border-radius: 50%;
+}
+.llave {
+  position: absolute;
+  width: 40px;
+  height: auto;
+  cursor: pointer;
+  animation: parpadeo 1s infinite;
+}
+
+@keyframes parpadeo {
+  0% { filter: drop-shadow(0 0 5px gold); }
+  50% { filter: drop-shadow(0 0 15px gold); }
+  100% { filter: drop-shadow(0 0 5px gold); }
+}
+@keyframes flotarYGirar {
+  0% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(180deg);
+  }
+  100% {
+    transform: translateY(0) rotate(360deg);
+  }
+}
+
+.llave {
+  position: absolute;
+  width: 40px;
+  height: auto;
+  animation: flotarYGirar 2.5s infinite ease-in-out;
+  filter: drop-shadow(0 0 8px gold);
+  transition: transform 0.2s;
+}
+ #comenzar-juego {
+  z-index: 10;
+  position: relative;
+}
+#intro-comic {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 5;
+  width: 100vw;
+  height: 100vh;
+  background-color: white;
+}
+button {
+  touch-action: manipulation;
+}

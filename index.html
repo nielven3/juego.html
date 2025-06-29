@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>La Gran Fuga – Nivel 1</title>
+  <link rel="stylesheet" href="estilo.css" />
+</head>
+<body>
+
+  <a href="intro.html">ir a otra pagina</a>
+
+  <!-- 🎯 Encabezado -->
+  <header>
+    <h1>🏃‍♂️ La Gran Fuga – Nivel 1: “Operación Caña y Calcetines”</h1>
+  </header>
+
+  <main>
+    <!-- 🔋 Interfaz de Energía -->
+    <div id="energia-barra-container">
+      <label for="energia">Energía:</label>
+      <progress id="energia" value="100" max="100"></progress>
+    </div>
+
+    <!-- 🎮 Zona principal del juego -->
+    <section id="game-container">
+      <!-- 👵 Jugadora principal -->
+      <img src="imagenes/abuela.png" id="doña-tina" class="personaje" alt="Doña Tina" />
+
+      <!-- 🧦 Obstáculos -->
+      <img src="imagenes/clasetas.png" class="calcetin" style="top: 100px; left: 400px;" alt="Calcetín" />
+      <img src="imagenes/clasetas.png" class="calcetin" id="calcetin1" style="top: 280px; left: 200px;" alt="Calcetín explosivo" />
+
+      <!-- ☕ Bonus -->
+      <img src="imagenes/refresco.png" class="powerup" style="top: 50px; left: 320px;" title="Té relajante ☕" alt="Refresco energético" />
+
+      <!-- 👩‍⚕️ Enemiga -->
+      <img src="imagenes/robot.png" class="enfermera" id="enfermera" style="top: 180px; left: 240px;" alt="Enfermera Robot" />
+
+      <!-- 🫣 Zona segura -->
+      <img src="imagenes/escondite.png" class="escondite" id="escondite" style="top: 500px; left: 200px;" alt="Escondite" />
+
+      <!-- 🚪 Elementos interactivos -->
+      <div id="puerta-de-tina" class="puerta-bloqueada" style="top: 160px; left: 500px;"></div>
+      <div id="palanca-tina" class="palanca" style="top: 60px; left: 550px;"></div>
+      <div id="puerta-final" class="puerta-final" style="top: 40px; left: 20px;"></div>
+    </section>
+
+    <!-- 💬 Diálogo dinámico -->
+    <section id="dialogo-box">
+      <p id="mensaje">¡Ayúdame a salir sin hacer ruido!</p>
+    </section>
+
+    <!-- 📱 Controles táctiles -->
+    <div id="controles-tactiles">
+      <button class="flecha" id="btn-arriba">⬆️</button>
+      <div>
+        <button class="flecha" id="btn-izquierda">⬅️</button>
+        <button class="flecha" id="btn-abajo">⬇️</button>
+        <button class="flecha" id="btn-derecha">➡️</button>
+      </div>
+      <button id="btn-nostalgia" class="especial">🌅 Recuerdo Nostálgico</button>
+    </div>
+  </main>
+<button id="musica-toggle" class="especial">🎵 Música ON/OFF</button>
+<!-- 🔑 Llave maestra -->
+<img src="imagenes/llave.png"style="top: 530px; left: 800px"
+     id="llave-maestra"
+     class="llave"
+     alt="Llave Maestra"
+     style="top: 100px; left: 120px;" />
+
+  <!-- 📎 Pie de página -->
+  <footer>
+    <p>Hecho con cariño por Nielsen 🎨✨</p>
+  </footer>
+  
+  <!-- 📜 Script principal -->
+  <script src="main/main.js"></script>
+</body>
+</html>
